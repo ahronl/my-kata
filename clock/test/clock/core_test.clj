@@ -29,3 +29,14 @@
   (testing "when check eauality between 10:00 and 10:10 should return true"
    (let [clk (clock 10 0) expt-clk (clock 10 0)]
     (is (= expt-clk clk)))))
+
+(deftest clock-functions-tests
+  (testing "when add 0 should return the same clock"
+   (let [clk (clock 9 0)]
+    (is (= (clock 9 0) (add clk 0)))))
+  (testing "when add 59 to 10:00 should return 10:59"
+   (let [clk (clock 10 0)]
+    (is (= (clock 10 59) (add clk 59)))))
+  (testing "when add 67 to 10:00 should return 11:07"
+   (let [clk (clock 10 0)]
+    (is (= "11:07" (to-string (add clk 67)))))))
