@@ -14,4 +14,10 @@
      (is (= "11:01" (to-string clk)))))
   (testing "when set hour 25 and minute 1 should return 1:01"
     (let [clk (clock 25 1)]
-     (is (= "1:01" (to-string clk))))))
+     (is (= "1:01" (to-string clk)))))
+  (testing "when set hour -25 and minute 0 should return 23:00"
+    (let [clk (clock -25 0)]
+     (is (= "23:00" (to-string clk)))))
+  (testing "when set hour -25 and minute 60 should return 0:00"
+    (let [clk (clock -25 60)]
+     (is (= "0:00" (to-string clk))))))
