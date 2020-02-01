@@ -21,3 +21,11 @@
   (testing "when set hour -25 and minute 60 should return 0:00"
     (let [clk (clock -25 60)]
      (is (= "0:00" (to-string clk))))))
+
+(deftest clock-equal-tests
+  (testing "when check equality between 10:00 and 10:01 should return false"
+   (let [clk (clock 10 0) expt-clk (clock 10 1)]
+    (is (not (= expt-clk clk)))))
+  (testing "when check eauality between 10:00 and 10:10 should return true"
+   (let [clk (clock 10 0) expt-clk (clock 10 0)]
+    (is (= expt-clk clk)))))
