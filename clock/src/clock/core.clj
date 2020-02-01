@@ -4,4 +4,4 @@
  (str (:hour c) ":" (format "%02d" (:minute c))))
 
 (defn clock [h m]
- {:hour (+ h (quot m 60)) :minute (mod m 60)})
+ {:hour (mod (+ h (quot m 60)) 24) :minute (mod m 60)})
